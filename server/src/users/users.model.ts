@@ -3,9 +3,13 @@ import {
   BelongsToMany,
   Column,
   DataType,
+  HasMany,
+  HasOne,
   Model,
   Table,
 } from 'sequelize-typescript';
+import { Basket } from 'src/basket/basket.model';
+import { Rating } from 'src/rating/rating.model';
 import { Role } from 'src/roles/roles.model';
 import { UserRoles } from 'src/roles/user-roles.model';
 
@@ -42,4 +46,10 @@ export class User extends Model<User, UserCreationAttributes> {
 
   @BelongsToMany(() => Role, () => UserRoles)
   roles: Role[];
+
+  @HasOne(() => Basket)
+  basket: Basket;
+
+  @HasMany(() => Rating)
+  ratings: Rating[];
 }
