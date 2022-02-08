@@ -8,11 +8,11 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { BasketDevice } from 'src/basket/basket-device.model';
-import { Brand } from 'src/brand/brand.model';
-import { Rating } from 'src/rating/rating.model';
-import { Type } from 'src/type/type.model';
-import { DeviceInfo } from './device-info.model';
+import { BasketDevice } from 'src/baskets/baskets-devices.model';
+import { Brand } from 'src/brands/brands.model';
+import { Rating } from 'src/ratings/ratings.model';
+import { Type } from 'src/types/types.model';
+import { DeviceInfo } from './devices-info.model';
 
 @Table({ tableName: 'device' })
 export class Device extends Model<Device> {

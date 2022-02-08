@@ -7,9 +7,9 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Brand } from 'src/brand/brand.model';
-import { Device } from 'src/device/device.model';
-import { TypeBrand } from './type-brand.model';
+import { Brand } from 'src/brands/brands.model';
+import { Device } from 'src/devices/devices.model';
+import { TypeBrand } from './types-brands.model';
 
 @Table({ tableName: 'type' })
 export class Type extends Model<Type> {

@@ -7,8 +7,8 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Device } from 'src/device/device.model';
-import { Basket } from './basket.model';
+import { Device } from 'src/devices/devices.model';
+import { Basket } from './baskets.model';
 
 @Table({ tableName: 'basket' })
 export class BasketDevice extends Model<BasketDevice> {

@@ -7,7 +7,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Device } from './device.model';
+import { Device } from './devices.model';
 
 @Table({ tableName: 'device_info' })
 export class DeviceInfo extends Model<DeviceInfo> {

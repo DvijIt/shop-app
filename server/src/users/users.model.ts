@@ -8,8 +8,8 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Basket } from 'src/basket/basket.model';
-import { Rating } from 'src/rating/rating.model';
+import { Basket } from 'src/baskets/baskets.model';
+import { Rating } from 'src/ratings/ratings.model';
 import { Role } from 'src/roles/roles.model';
 import { UserRoles } from 'src/roles/user-roles.model';
 

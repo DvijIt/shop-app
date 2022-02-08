@@ -1,16 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
+  BelongsTo,
   Column,
   DataType,
   ForeignKey,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Brand } from 'src/brand/brand.model';
-import { Type } from './type.model';
+import { User } from 'src/users/users.model';
+import { BasketDevice } from './baskets-devices.model';
 
-@Table({ tableName: 'type_brand' })
-export class TypeBrand extends Model<TypeBrand> {
+@Table({ tableName: 'basket' })
+export class Basket extends Model<Basket> {
   @ApiProperty({ example: '1', description: 'Уникальный идентификатор' })
   @Column({
     type: DataType.INTEGER,
@@ -20,13 +22,13 @@ export class TypeBrand extends Model<TypeBrand> {
   })
   id: number;
 
-  @ForeignKey(() => Type)
-  @Column({
-    type: DataType.INTEGER,
-  })
-  roleId: number;
-
-  @ForeignKey(() => Brand)
+  @ForeignKey(() => User)
   @Column({ type: DataType.INTEGER })
   userId: number;
+
+  @BelongsTo(() => User)
+  user: User;
+
+  @HasMany(() => BasketDevice)
+  basketDevices: BasketDevice[];
 }
