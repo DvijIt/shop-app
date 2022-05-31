@@ -29,9 +29,9 @@ export class Device extends Model<Device> {
   @Column({ type: DataType.STRING, unique: true, allowNull: false })
   name: string;
 
-  @ApiProperty({ example: '1714', description: 'имя девайса' })
+  @ApiProperty({ example: 1231, description: 'имя девайса' })
   @Column({ type: DataType.INTEGER, allowNull: false })
-  price: string;
+  price: number;
 
   @ApiProperty({ example: '5', description: 'рейтинг девайса' })
   @Column({ type: DataType.INTEGER, defaultValue: 0 })
@@ -39,7 +39,7 @@ export class Device extends Model<Device> {
 
   @ApiProperty({ example: 'img src', description: 'изображение девайса' })
   @Column({ type: DataType.STRING, allowNull: false })
-  img: string;
+  thumbnail: string;
 
   @ForeignKey(() => Brand)
   @Column({ type: DataType.INTEGER })

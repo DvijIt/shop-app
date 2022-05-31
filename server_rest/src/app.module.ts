@@ -1,17 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 import { AuthController } from './auth/auth.controller';
 import { BasketsController } from './baskets/baskets.controller';
 import { RatingsController } from './ratings/ratings.controller';
-import { TypesController } from './types/types.controller';
-import { BrandsController } from './brands/brands.controller';
 
-import { DevicesService } from './devices/devices.service';
 import { RatingsService } from './ratings/ratings.service';
-import { TypesService } from './types/types.service';
-import { BrandsService } from './brands/brands.service';
 
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -21,6 +18,7 @@ import { RatingsModule } from './ratings/ratings.module';
 import { TypesModule } from './types/types.module';
 import { BrandsModule } from './brands/brands.module';
 import { DevicesModule } from './devices/devices.module';
+import { FilesModule } from './files/files.module';
 
 import { User } from './users/users.model';
 import { Role } from './roles/roles.model';
@@ -35,14 +33,8 @@ import { DeviceInfo } from './devices/devices-info.model';
 import { TypeBrand } from './types/types-brands.model';
 
 @Module({
-  controllers: [
-    AuthController,
-    BasketsController,
-    BrandsController,
-    TypesController,
-    RatingsController,
-  ],
-  providers: [DevicesService, BrandsService, TypesService, RatingsService],
+  controllers: [AuthController, BasketsController, RatingsController],
+  providers: [RatingsService],
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
@@ -69,6 +61,9 @@ import { TypeBrand } from './types/types-brands.model';
       ],
       autoLoadModels: true,
     }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, 'static'),
+    }),
     UsersModule,
     RolesModule,
     AuthModule,
@@ -77,6 +72,7 @@ import { TypeBrand } from './types/types-brands.model';
     BrandsModule,
     TypesModule,
     RatingsModule,
+    FilesModule,
   ],
 })
 export class AppModule {}
