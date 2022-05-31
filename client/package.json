@@ -1,0 +1,36 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React example starter project",
+  "keywords": [
+    "react",
+    "starter"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@apollo/client": "^3.6.5",
+    "graphql": "^16.5.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.18.3",
+    "typescript": "4.7.2",
+    "apollo": "2.33.4",
+    "apollo-codegen-core": "0.40.3",
+    "apollo-language-server": "1.26.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
