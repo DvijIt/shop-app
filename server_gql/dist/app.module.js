@@ -12,6 +12,7 @@ const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const graphql_1 = require("@nestjs/graphql");
 const users_module_1 = require("./users/users.module");
+const tasks_module_1 = require("./tasks/tasks.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -40,6 +41,7 @@ AppModule = __decorate([
                 }),
             }),
             users_module_1.UsersModule,
+            tasks_module_1.TasksModule,
         ],
         providers: [],
     })

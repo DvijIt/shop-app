@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input CreateTaskInput {
+  completed: Boolean = false
+  task: String!
+}
+
 input CreateUserInput {
   email: String!
   name: String
@@ -13,14 +18,33 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Mutation {
+  createTask(createTask: CreateTaskInput!): TaskEntity!
   createUser(createUser: CreateUserInput!): UserEntity!
+  removeTask(id: Float!): Float!
   removeUser(id: Float!): Float!
+  updateTask(updateTask: UpdateTaskInput!): TaskEntity!
   updateUser(updateUser: UpdateUserInput!): UserEntity!
 }
 
 type Query {
+  getAllTasks: [TaskEntity!]!
   getAllUsers: [UserEntity!]!
+  getOneTask(id: Float!): TaskEntity!
   getOneUser(id: Float!): UserEntity!
+}
+
+type TaskEntity {
+  completed: Boolean!
+  createdAt: DateTime!
+  id: ID!
+  task: String!
+  updatedAt: DateTime!
+}
+
+input UpdateTaskInput {
+  completed: Boolean
+  id: ID!
+  task: String
 }
 
 input UpdateUserInput {

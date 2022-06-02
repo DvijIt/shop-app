@@ -3,7 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { GraphQLModule } from '@nestjs/graphql'
 
-import { UsersModule } from './users/users.module'
+import { UsersModule } from '@src/users/users.module'
+import { TasksModule } from '@src/tasks/tasks.module';
 
 @Module({
 	imports: [
@@ -30,6 +31,7 @@ import { UsersModule } from './users/users.module'
 			}),
 		}),
 		UsersModule,
+		TasksModule,
 	],
 	providers: [],
 })
